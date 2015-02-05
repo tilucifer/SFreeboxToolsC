@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+         
+    <!-- Editext for Search -->
+    <!--EditText android:id="@+id/freebox_item_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Recherche.."
+        android:inputType="textVisiblePassword"/>
+-->
+    <TextView
+        android:id="@+id/freebox_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:textAlignment="center"
+        android:text="Vue pour l'accès Freebox"
+        android:textSize="20dip"
+        android:textStyle="bold" />
+          <!-- 
+        android:textColor="#ff29549f" -->
+    <!-- List View -->
+    <ListView
+        android:id="@+id/freebox_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+  
+</LinearLayout>

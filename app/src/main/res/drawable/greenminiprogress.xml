@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@android:id/background">
+    <shape><!-- 
+        gris
+                android:startColor="#809d9e9d"
+                android:endColor="#809d9e9d" />
+                
+                
+         -->
+        <gradient
+                android:startColor="#40370F0F"
+                android:endColor="#40565D0F" />
+    </shape>
+</item>
+
+<!--<item android:id="@android:id/secondaryProgress">
+    <clip>
+        <shape>
+            <corners android:radius="5dip" />
+            <gradient
+                android:startColor="#33FF33"
+                android:endColor="#008000"
+                    android:angle="270"
+            />
+        </shape>
+    </clip>
+</item>
+<item
+    android:id="@android:id/progress"
+>
+    <clip>
+        <shape>
+            <corners
+                android:radius="5dip" />
+            <gradient
+                    android:startColor="#80ffd300"
+                    android:centerColor="#80ffb600"
+                    android:centerY="0.75"
+                    android:endColor="#a0ffcb00"
+                android:angle="270" />
+        </shape>
+    </clip>
+</item>-->
+
+<item android:id="@android:id/secondaryProgress">
+    <clip>
+        <shape><!--
+            Vert origine tamisé
+                    android:startColor="#50669900"
+                    android:endColor="#50669900"/>
+            vert 
+                android:startColor="#2B3A0D"
+                android:endColor="#2B3A0D"/>
+                
+            rouge
+                android:startColor="003939"
+                android:endColor="#FF4444"/>
+            rouge foncé
+                android:startColor="#A70303"
+                android:endColor="#CC0000"/>
+             -->
+            <gradient
+                android:startColor="#557E03"
+                android:endColor="#669900"/>
+        </shape>
+    </clip>
+</item>
+<item
+    android:id="@android:id/progress"
+>
+    <clip>
+        <shape><!--
+            vert 
+                android:startColor="#557E03"
+                android:endColor="#669900"/>
+                
+            rouge
+                android:startColor="003939"
+                android:endColor="#FF4444"/>
+            rouge foncé
+                android:startColor="#A70303"
+                android:endColor="#CC0000"/>
+             -->
+            <gradient
+                android:startColor="#A70303"
+                android:endColor="#CC0000"/>
+        </shape>
+    </clip>
+</item>
+
+</layer-list>

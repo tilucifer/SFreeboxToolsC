@@ -1,0 +1,16 @@
+<PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android">
+
+<EditTextPreference 
+	android:key="pref_user_public_torrent" 
+	android:title="@string/pref_title_user_public_torrent" 
+	android:summary="@string/pref_summary_user_public_torrent">
+</EditTextPreference>
+
+<EditTextPreference 
+	android:title="@string/pref_title_pwd_public_torrent" 
+	android:key="pref_pwd_public_torrent" 
+	android:summary="@string/pref_summary_pwd_public_torrent" 
+	android:password="true">
+</EditTextPreference>
+
+</PreferenceScreen>

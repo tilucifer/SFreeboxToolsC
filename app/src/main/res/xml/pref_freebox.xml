@@ -1,0 +1,16 @@
+<PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android">
+
+<EditTextPreference 
+	android:key="pref_ip_public_freebox" 
+	android:title="@string/pref_title_ip_public_freebox" 
+	android:summary="@string/pref_summary_ip_public_freebox">
+</EditTextPreference>
+
+<EditTextPreference 
+	android:title="@string/pref_title_port_public_freebox" 
+	android:key="pref_port_public_freebox" 
+	android:summary="@string/pref_summary_port_public_freebox" 
+	android:password="true">
+</EditTextPreference>
+
+</PreferenceScreen>

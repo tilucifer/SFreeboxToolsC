@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <property name="LOG_DIR" value="/sdcard/Android/data/fr.scaron.sfreeboxtools/logs" />
+	<property name="FIC_DIR" value="/sdcard/Android/data/fr.scaron.sfreeboxtools/files" />
+	
+  <!-- Create a logcat appender -->
+  <!-- 
+  <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+    <encoder>
+      <pattern>%msg</pattern>
+    </encoder>
+  </appender>
+   -->
+  
+
+  <!-- Create a file appender for Http-level messages -->
+  <appender name="logcat" class="ch.qos.logback.core.FileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>DEBUG</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>ACCEPT</onMismatch>
+    </filter>
+    
+	  <file>${FIC_DIR}/console.log</file>
+      <includeCallerData>true</includeCallerData>
+    
+    <encoder>
+		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n%ex{full}</pattern>
+    </encoder>  
+  </appender>
+
+  <!-- Create a file appender for Http-level messages -->
+  <appender name="HttpLog" class="ch.qos.logback.core.FileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>DEBUG</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>ACCEPT</onMismatch>
+    </filter>
+    
+	  <file>${LOG_DIR}/http.log</file>
+      <includeCallerData>true</includeCallerData>
+    
+    <encoder>
+		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n</pattern>
+    </encoder>  
+  </appender>
+  
+  
+  <!-- Create a file appender for TRACE-level messages -->
+  <appender name="TraceLog" class="ch.qos.logback.core.FileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>DEBUG</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>ACCEPT</onMismatch>
+    </filter>
+    
+	  <file>${LOG_DIR}/trace.log</file>
+      <includeCallerData>true</includeCallerData>
+    
+    <encoder>
+		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n</pattern>
+    </encoder>  
+  </appender>
+
+  <!-- Create a file appender for DEBUG-level messages -->
+  <appender name="DebugLog" class="ch.qos.logback.core.FileAppender">
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>DEBUG</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>ACCEPT</onMismatch>
+    </filter>
+    
+	  <file>${LOG_DIR}/debug.log</file>
+      <includeCallerData>true</includeCallerData>
+    
+    <encoder>
+		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Write Http messages from httpclient.wire to its own log -->
+  <logger name="httpclient.wire" level="DEBUG">
+    <appender-ref ref="HttpLog" />
+  </logger>
+  
+  <!-- Write Http messages from class A to its own log -->
+  <logger name="org.apache" level="DEBUG">
+    <appender-ref ref="HttpLog" />
+  </logger>
+  
+  <!-- Write Http messages from class A to its own log -->
+  <logger name="android.net.http" level="DEBUG">
+    <appender-ref ref="HttpLog" />
+  </logger>
+  
+  
+  <!-- Write Http messages from class A to its own log -->
+  <logger name="org.apache.http" level="DEBUG">
+    <appender-ref ref="HttpLog" />
+  </logger>
+  
+
+  <!-- Write TRACE messages from class A to its own log -->
+  <logger name="android" level="TRACE">
+    <appender-ref ref="TraceLog" />
+  </logger>
+  
+  <!-- Write TRACE messages from class A to its own log -->
+  <logger name="com.loopj.android.http" level="TRACE">
+    <appender-ref ref="TraceLog" />
+  </logger>
+  
+  <!-- Write DEBUG messages from class B to its own log -->
+  <logger name="fr.scaron.sfreeboxtools" level="DEBUG">
+    <appender-ref ref="DebugLog" />
+  </logger> 
+
+  <!-- Write DEBUG (and higher-level) messages to logcat -->
+  <root level="DEBUG">
+    <appender-ref ref="logcat" />
+  </root>
+</configuration>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+    android:background="@drawable/notification_bg"
+    android:id="@+id/list_item_notifstyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/notification_icon_width"
+    internal:layout_minHeight="@dimen/notification_icon_width"
+    internal:layout_maxHeight="@dimen/notification_icon_width"
+    >
+    <!-- 
+        android:background="@drawable/notification_template_icon_bg" -->
+    <ImageView android:id="@+id/list_icon"
+        android:layout_width="@dimen/notification_icon_width"
+        android:layout_height="@dimen/notification_icon_height"
+        android:src="@drawable/freebox_icon"
+        android:scaleType="fitCenter"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_marginStart="@dimen/notification_icon_width"
+        android:minHeight="@dimen/notification_icon_height"
+        android:orientation="vertical"
+        android:paddingEnd="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:gravity="top"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/freebox_box_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:singleLine="true"
+                android:text="Ma Freebox"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            <ImageView android:id="@+id/list_icon_selected"
+                android:layout_width="@dimen/activity_vertical_margin"
+                android:layout_height="@dimen/activity_horizontal_margin"
+                android:src="@android:drawable/presence_online"
+                android:scaleType="fitCenter"
+                android:singleLine="true"
+                android:visibility="invisible"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView android:id="@+id/freebox_box_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        		android:text="mafreebox.free.fr"
+                android:ellipsize="marquee"
+                android:textColor="@color/t411_grey"
+                android:paddingTop="5dp"
+                android:textSize="14sp"
+                />
+            <TextView android:id="@+id/freebox_box_port_sep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/freebox_box_ip"
+                android:text=" : "
+                android:ellipsize="marquee"
+                android:textColor="@color/t411_grey"
+                android:textSize="14sp"
+                />
+        <TextView android:id="@+id/freebox_box_port"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/freebox_box_port_sep"
+            android:text="80"
+            android:ellipsize="marquee"
+            android:textColor="@color/t411_grey"
+            android:textSize="14sp"
+            />
+        </LinearLayout>
+        </LinearLayout>
+</FrameLayout>

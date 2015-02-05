@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.scaron.sfreeboxtools"
+    android:versionCode="1"
+    android:versionName="1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <application android:name="fr.scaron.sfreeboxtools.SFreeboxTools"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        
+        
+        
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.FreeboxActivity"
+            android:label="Ma Freebox"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" 
+>
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity" />
+        </activity>
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.FreeboxListBoxActivity"
+            android:label="Ma Liste de Freebox"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.UserPrefsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.UserPrefsActivity" />
+            <intent-filter>
+                <action android:name="fr.scaron.sfreeboxtools.activity.FreeboxListBoxActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.GetDownloadActivity"
+            android:label="Détail Téléchargement"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.FreeboxActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" 
+>
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.FreeboxActivity" />
+        </activity>
+
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.T411Activity"
+            android:label="Mon T411"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" 
+ >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity" />
+            
+        </activity>
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.T411DetailActivity"
+            android:label="T411 Fiche détail"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.T411Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" 
+ >
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.T411Activity" />
+        </activity>
+
+        <activity android:name="fr.scaron.sfreeboxtools.activity.UserPrefsActivity"
+            android:label="Paramètres"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity"
+			android:screenOrientation="portrait">
+            <meta-data
+        		android:name="android.support.PARENT_ACTIVITY"
+        		android:value="fr.scaron.sfreeboxtools.activity.AndroidDashboardDesignActivity" />
+        </activity>
+        
+        
+        <!-- <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+    </application>
+
+</manifest>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout android:id="@+id/laDownloadTitle"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+        >
+
+		    <ImageView
+		        android:id="@+id/imgTypeTransfert"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignTop="@+id/tvDownloadName"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginTop="5dp"
+		        android:contentDescription="@string/imgDescription"
+		        android:src="@drawable/ic_menu_download" />
+		
+		    <TextView
+		        android:id="@+id/tvDownloadName"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentTop="true"
+		        android:layout_marginBottom="5dp"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginRight="5dp"
+		        android:layout_marginTop="5dp"
+		        android:layout_toRightOf="@+id/imgTypeTransfert"
+		        android:text="@string/noDownload"
+		        android:textColor="#F3F3F3"
+		        android:textSize="11dip" />
+
+	</LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarDownload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/laDownloadTitle"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:maxHeight="8dip"
+        android:minHeight="8dip"
+        android:progress="50"
+        android:secondaryProgress="75"
+        android:progressDrawable="@drawable/greenminiprogress" />
+        
+    <TextView
+        android:id="@+id/progressStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progressBarDownload"
+        android:layout_alignRight="@+id/progressBarDownload"
+        android:layout_below="@+id/progressBarDownload"
+        android:layout_marginTop="2dp"
+        android:text="@string/empty"
+        android:textColor="#A0A0A0"
+        android:textSize="11dip" />
+        
+    <TextView
+        android:id="@+id/progressUpStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progressBarDownload"
+        android:layout_alignRight="@+id/progressBarDownload"
+        android:layout_below="@+id/progressStatus"
+        android:layout_marginTop="2dp"
+        android:text="@string/empty"
+        android:textColor="#A0A0A0"
+        android:textSize="11dip" />
+        
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progressBarDownload"
+        android:layout_alignRight="@+id/progressBarDownload"
+        android:layout_below="@+id/progressUpStatus"
+        android:layout_marginTop="2dp"
+        android:text="@string/empty"
+        android:textColor="#A0A0A0"
+        android:textSize="11dip" />
+        
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progressBarDownload"
+        android:layout_alignRight="@+id/progressBarDownload"
+        android:layout_below="@+id/tvSize"
+        android:layout_marginTop="2dp"
+        android:text="@string/empty"
+        android:textColor="#A0A0A0"
+        android:textSize="11dip" />
+        
+    <TextView
+        android:id="@+id/tvErrmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/progressBarDownload"
+        android:layout_alignRight="@+id/progressBarDownload"
+        android:layout_below="@+id/tvUrl"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        android:text="@string/empty"
+        android:textColor="#A0A0A0"
+        android:textSize="11dip" />
+    <LinearLayout
+        android:id="@+id/btnBar"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+        android:layout_below="@+id/tvErrmsg" 
+    android:padding="5dp"
+            android:layout_weight="2">
+		    <Button 
+		        android:id="@+id/btnShowFiles"
+		        android:layout_width="wrap_content" 
+		        android:layout_height="wrap_content"
+        android:textSize="10dip" 
+            	android:layout_weight="1"
+		        android:text="Fichiers"/>
+		    <Button 
+		        android:id="@+id/btnShowTrackers"
+		        android:layout_alignRight="@+id/btnShowFiles"
+		        android:layout_width="wrap_content" 
+        android:textSize="10dip" 
+		        android:layout_height="wrap_content"
+            	android:layout_weight="1"
+		        android:text="Trackers"/>
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/listFiles"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="2dp"
+        android:dividerHeight="0dp"
+		android:divider="@null"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBar" />
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
+    <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
+    <color name="white">#ffffffff</color>
+    
+    
+    
+    
+
+    <color name="t411_blue">#0083AE</color>
+    <!-- <color name="t411_blue">#0059B4</color>-->
+    <color name="t411_red">#b40000</color>
+    <color name="t411_green">#129b00</color>
+    <color name="t411_black">#000000</color>
+    <color name="t411_purple">#9900ad</color>
+    <color name="t411_gold">#f4a140</color>
+    <color name="t411_lightgrey">#a8a8a8</color>
+    <color name="t411_grey">#787878</color>
+    <color name="t411_darkred">#c90900</color>
+    <color name="t411_salmon">#fe3333</color>
+</resources>

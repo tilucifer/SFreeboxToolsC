@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SFreeboxTools</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="crash_toast_text">Rapport de Crash de l\'application</string>
+
+    <string name="noDownloads">Aucun téléchargement trouvé. La liste est probablement vide .......</string>
+    <string name="noDownload">Aucun téléchargement trouvé.............................................................................................</string>
+    
+    <string name="menu_freebox_add_url">Ajouter un lien</string>
+    <string name="menu_freebox_add_torrent">Ajouter un torrent</string>
+    <string name="menu_torrent_search">Rechercher ce torrent</string>
+    
+    <string name="imgDescription"></string>
+    <!-- <string name="empty"></string>-->
+    <string name="empty">empty</string>
+    <string name="addHttpDownloadLink">Ajouter un lien à vos téléchargements.</string>
+    <string name="add">Ajouter</string>
+    <string name="httpLinkToDownload">coller ici le lien</string>
+    <string name="download">Téléchargement</string>
+    
+    
+    <string name="DownloadLeft">avant la limite de ratio faible.</string>
+    <string name="UploadLeft">à envoyer avant le ratio souhaité.</string>
+    <string name="button_mail">Emails</string>
+    <string name="top_100">Top torrents…</string>
+    <string name="bookmarks">Favoris</string>
+    <string name="my_friends">Mes amis</string>
+    <string name="my_uploads">Mes uploads</string>
+    <string name="statistics">Mes statistiques</string>
+    <string name="calculator">Calculatrice</string>
+    <string name="btn_news">News t411</string>
+    <string name="btn_forum">Fil de Discussion</string>
+    <string name="button_service">Paramètres</string>
+    <string name="about">A propos…</string>
+    
+</resources>

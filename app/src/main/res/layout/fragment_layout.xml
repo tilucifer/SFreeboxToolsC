@@ -1,0 +1,31 @@
+<fr.scaron.sfreeboxtools.layout.DashboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1">
+<!-- 
+    android:background="#f8f9fe"  -->
+    <!-- Freebox Button -->
+
+    <Button
+        android:id="@+id/btn_freebox"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_freebox"
+        android:text="Freebox Seedbox" />
+
+    <!-- T411 Button -->
+
+    <Button
+        android:id="@+id/btn_t411"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_menu_t411"
+        android:text="T411 Explorer" />
+
+    <!-- Settings Button -->
+
+    <Button
+        android:id="@+id/btn_settings"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_settings"
+        android:text="Paramètres" />
+
+</fr.scaron.sfreeboxtools.layout.DashboardLayout>

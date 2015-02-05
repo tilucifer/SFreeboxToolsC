@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+    android:background="@drawable/notification_bg"
+    android:id="@+id/list_item_notifstyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/notification_icon_width"
+    internal:layout_minHeight="@dimen/notification_icon_width"
+    internal:layout_maxHeight="@dimen/notification_icon_width"
+    >
+    <!-- 
+        android:background="@drawable/notification_template_icon_bg" -->
+    <ImageView android:id="@+id/list_icon"
+        android:layout_width="@dimen/notification_icon_width"
+        android:layout_height="@dimen/notification_icon_height"
+        android:src="@drawable/emo_im_sad"
+        android:scaleType="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_marginStart="@dimen/notification_icon_width"
+        android:minHeight="@dimen/notification_icon_height"
+        android:orientation="vertical"
+        android:paddingEnd="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:gravity="top"
+        >
+
+        <LinearLayout
+            android:id="@+id/list_line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:paddingTop="2dp" >
+
+            <TextView
+                android:id="@+id/list_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:singleLine="false"
+                android:text="@string/noDownloads"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout><!-- 
+            android:visibility="gone" -->
+
+        <ProgressBar
+            android:id="@+id/list_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginStart="8dp"
+            android:minHeight="4dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:progress="50" 
+            android:secondaryProgress="75" 
+            android:progressDrawable="@drawable/greenminiprogress"/>
+
+        <LinearLayout
+            android:id="@+id/list_line3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            >
+            <TextView android:id="@+id/list_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:singleLine="true"
+        		android:text="Torrent"
+                android:ellipsize="marquee"
+                android:textSize="10sp"
+                />
+            <TextView android:id="@+id/list_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:singleLine="true"
+        		android:text="MP3"
+                android:gravity="center"
+                android:paddingStart="8dp"
+                android:textSize="10sp"
+                />
+            <ImageView android:id="@+id/list_right_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:src="@drawable/emo_im_sad"
+                android:contentDescription="RightIcon"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

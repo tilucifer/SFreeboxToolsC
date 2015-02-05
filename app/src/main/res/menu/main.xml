@@ -1,0 +1,58 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <!-- menu group -->
+    <group android:id="@+id/group_seedbox" >
+        <item
+            android:id="@+id/menu_freebox_add_url"
+            android:icon="@drawable/ic_action_add_url"
+            app:showAsAction="never"
+            android:title="@string/menu_freebox_add_url"/>
+        <item
+            android:id="@+id/menu_freebox_add_torrent"
+            android:icon="@drawable/ic_action_add_torrent"
+            app:showAsAction="never"
+            android:title="@string/menu_freebox_add_torrent"/>
+    </group>
+    <group android:id="@+id/group_torrent_navigation" >
+        <item
+            android:id="@+id/menu_torrent_prev_page"
+            android:icon="@drawable/ic_action_prev_page"
+            app:showAsAction="always"
+            android:title="@string/menu_torrent_search"/>
+        <item
+            android:id="@+id/menu_torrent_next_page"
+            android:icon="@drawable/ic_action_next_page"
+            app:showAsAction="always"
+            android:title="@string/menu_torrent_search"/>
+    </group>
+	<!--           android:showAsAction="collapseActionView|ifRoom" -->
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Actualiser"/>
+
+    <!-- android:actionViewClass="android.widget.SearchView"
+	rc:actionViewClass="android.support.v7.widget.SearchView"
+	rc:showAsAction="always" -->
+	
+    <item
+        android:id="@+id/search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_search"
+        android:searchSuggestAuthority="fr.scaron.sfreeboxtools.model.T411RecentSuggestionsProvider" 
+		android:searchSuggestSelection = "WORD LIKE '%'?"
+        android:title="Rechercher..."/>
+    <!-- <item
+        android:id="@+id/search"
+        android:actionViewClass="android.widget.SearchView" 
+        android:showAsAction="always"
+        android:icon="@drawable/ic_search"
+        android:searchSuggestAuthority="fr.scaron.sfreeboxtools.model.T411RecentSuggestionsProvider" 
+		android:searchSuggestSelection = "WORD LIKE '%'?"
+        android:title="Rechercher..."/> -->
+
+</menu>
