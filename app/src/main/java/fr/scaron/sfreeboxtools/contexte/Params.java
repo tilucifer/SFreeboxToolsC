@@ -190,15 +190,15 @@ public class Params {
 	public static String FBX_SESSION_PWD = null;
 	
 	public static void reinit(){
-		FBX_GET_LOGIN = "http://"+FREEBOX_IP+"/api/v1/login/";
-		FBX_GET_VERSION = "http://"+FREEBOX_IP+"/api_version";
-		FBX_POST_LOGIN = "http://"+FREEBOX_IP+"/api/v1/login/";
-		FBX_POST_AUTHORIZE = "http://"+FREEBOX_IP+"/api/v1/login/authorize/";
-		FBX_POST_GET_SESSION = "http://"+FREEBOX_IP+"/api/v1/login/session/";
-		FBX_GET_DOWNLOADS = "http://"+FREEBOX_IP+"/api/v1/downloads/";
-		FBX_POST_ADD = "http://"+FREEBOX_IP+"/api/v1/downloads/add";
-		FBX_POST_LOGOUT = "http://"+FREEBOX_IP+"/api/v1/login/logout/";
-		FBX_GET_CONFIG = "http://"+FREEBOX_IP+"/api/v1/connection/config/";
+		FBX_GET_LOGIN = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/";
+		FBX_GET_VERSION = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api_version";
+		FBX_POST_LOGIN = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/";
+		FBX_POST_AUTHORIZE = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/authorize/";
+		FBX_POST_GET_SESSION = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/session/";
+		FBX_GET_DOWNLOADS = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/downloads/";
+		FBX_POST_ADD = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/downloads/add";
+		FBX_POST_LOGOUT = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/logout/";
+		FBX_GET_CONFIG = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/connection/config/";
 	}
 	
 	public static String hmacSha1(String value, String key) {

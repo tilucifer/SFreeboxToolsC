@@ -154,7 +154,9 @@ public class FreeboxListBoxActivity extends AbstractActivity
         ArrayList<String> boxPorts = myDB.getList("FreeboxBoxPorts");
         ArrayList<String> boxTokens = myDB.getList("FreeboxBoxTokens");
         ArrayList<Boolean> boxSelecteds = myDB.getListBoolean("FreeboxBoxSelecteds");
-		
+
+
+
         log.info("listebbox null ? : "+(boxNames==null));
         if (boxNames !=null) {
             log.info("nb de box trouvees dans addtolist: " + boxNames.size());
@@ -167,6 +169,7 @@ public class FreeboxListBoxActivity extends AbstractActivity
 			boxIps.add(freebox.getIp_public());
 			boxPorts.add(freebox.getPort());
 			boxTokens.add(freebox.getApp_token());
+
 			boxSelecteds.add(true);
 			myDB.putList("FreeboxBoxNames", boxNames);
             myDB.putList("FreeboxBoxIps", boxIps);

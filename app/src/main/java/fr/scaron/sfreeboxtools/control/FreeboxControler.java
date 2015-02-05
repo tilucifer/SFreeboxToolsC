@@ -37,6 +37,7 @@ import fr.scaron.sfreeboxtools.model.FbxSession;
 import fr.scaron.sfreeboxtools.model.FbxWaitAuthorized;
 import fr.scaron.sfreeboxtools.model.FreeboxBox;
 import fr.scaron.sfreeboxtools.model.HttpRaster;
+import fr.scaron.sfreeboxtools.model.TinyDB;
 
 public class FreeboxControler {
 
@@ -46,6 +47,7 @@ public class FreeboxControler {
 			Follower follower) {
 
 		Context context = follower.getContext();
+        TinyDB myDB = new TinyDB(context);
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		SharedPreferences.Editor editor = settings.edit();
@@ -624,8 +626,12 @@ public class FreeboxControler {
 								if (config != null) {
 									FreeboxBox freeboxBox = new FreeboxBox();
 									freeboxBox.setIp_public(config.getString("remote_access_ip"));
-									freeboxBox.setPort(config.getString("remote_access_port"));
-                                    log.debug("Add Freebox "+freeboxBox.getIp_public()+":"+freeboxBox.getPort());
+									freeboxBox.setPort(""+config.getInt("remote_access_port"));//TODO FINIR TEST JU
+									
+
+									myDB.putString("pref_ip_public_freebox", freeboxBox.getIp_public());
+									myDB.putString("pref_port_public_freebox", freeboxBox.getPort());
+                                    log.debug("Add Freebox " + freeboxBox.getIp_public() + ":" + freeboxBox.getPort());
 									return freeboxBox;
 								}else{
 
@@ -934,14 +940,16 @@ public class FreeboxControler {
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(follower.getBaseContext());
 		boolean errorParams = false;
-		String ip = "";
-		String port = "80";
 
-		if (!settings.contains("pref_ip_public_freebox"))
+        TinyDB myDB = new TinyDB(follower);
+		String ip = "";
+		String port = "unkwnown";
+
+		if (!settings.contains("pref_ip_public_freebox") && settings.contains("pref_port_public_freebox"))
 			errorParams = true;
 		if (!errorParams) {
-
-			ip = settings.getString("pref_ip_public_freebox", "");
+            ip = myDB.getString("pref_ip_public_freebox");
+//			ip = settings.getString("pref_ip_public_freebox", "");
 			if (ip.isEmpty())
 				errorParams = true;
 			Params.FREEBOX_IP = ip;
