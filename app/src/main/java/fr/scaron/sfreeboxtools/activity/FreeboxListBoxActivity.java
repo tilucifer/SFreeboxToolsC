@@ -88,14 +88,17 @@ public class FreeboxListBoxActivity extends AbstractActivity
 
 	@Override
 	public void updateTitle(String title) {
+        int nbFreeboxs = Integer.valueOf(title);
 		TextView freeboxTitle = (TextView) findViewById(R.id.freebox_title_box);
-		if ("0".equals(title)) {
+//		if ("0".equals(title)||"1".equals(title)) {
+        if (nbFreeboxs<0){
 			freeboxTitle.setVisibility(View.VISIBLE);
 			freeboxTitle.setText("Aucune freebox associ\351e");
+            this.setTitle("Freeboxs (0)");
 		} else {
 			freeboxTitle.setVisibility(View.GONE);
 		}
-		this.setTitle("(" + title + ")");
+		this.setTitle("Freeboxs (" + title + ")");
 		setRefreshVisible(false);
 	}
 

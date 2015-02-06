@@ -43,12 +43,12 @@ public class FreeboxBoxAdapter extends ArrayAdapter<FreeboxBox> implements Filte
 		inflater = LayoutInflater.from(follower.getApplicationContext());
 		this.follower = follower;
 		this.freeboxBoxs = freeboxBoxs;
-        follower.updateTitle(String.valueOf(freeboxBoxs.size()));
+        follower.updateTitle(String.valueOf(freeboxBoxs.size()-1));
 		//setFreeboxBoxs(freeboxBoxs);
 	}
 	
 	public void setFreeboxBoxs(List<FreeboxBox> freeboxBoxs){
-		follower.updateTitle(String.valueOf(freeboxBoxs.size()));
+		follower.updateTitle(String.valueOf(freeboxBoxs.size()-1));
 		this.freeboxBoxs = freeboxBoxs;
 		super.notifyDataSetChanged();
 	}
@@ -56,7 +56,7 @@ public class FreeboxBoxAdapter extends ArrayAdapter<FreeboxBox> implements Filte
 	public void addFreeboxBox(FreeboxBox freeboxBox){
 		freeboxBox.setIndex(freeboxBoxs.size());
 		freeboxBoxs.add(freeboxBox);
-		follower.updateTitle(String.valueOf(freeboxBoxs.size()));
+		follower.updateTitle(String.valueOf(freeboxBoxs.size()-1));
 		
 		myDB = new TinyDB(follower);
         ArrayList<String> boxNames = myDB.getList("FreeboxBoxNames");
@@ -132,7 +132,7 @@ public class FreeboxBoxAdapter extends ArrayAdapter<FreeboxBox> implements Filte
         myDB.putListBoolean("FreeboxBoxSelecteds", boxSelecteds);
 
         //setFreeboxBoxs(freeboxBoxs);
-        follower.updateTitle(String.valueOf(freeboxBoxs.size()));
+        follower.updateTitle(String.valueOf(freeboxBoxs.size()-1));
         super.notifyDataSetChanged();
         log.debug("Fin de updaeListBoxes");
 		follower.setRefreshVisible(false);

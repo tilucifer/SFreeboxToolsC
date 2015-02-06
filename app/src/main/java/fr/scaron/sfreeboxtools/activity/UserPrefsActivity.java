@@ -5,12 +5,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.view.Menu;
+
 import fr.scaron.sfreeboxtools.R;
 
 /**
  * Created by gregory on 23/10/2013.
  */
-public class UserPrefsActivity extends PreferenceActivity {
+public class UserPrefsActivity extends AbstractActivity{//PreferenceActivity {
 /*
     SharedPreferences prefs;
 
@@ -36,23 +38,38 @@ public class UserPrefsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragement_prefs);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            onCreatePreferenceActivity();
-        } else {
-            onCreatePreferenceFragment();
-        }
+        AndroidDashboardDesignActivity.addActivity(this);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.content_prefs, new MyPreferenceFragment ())
+                .commit();
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+////            onCreatePreferenceActivity();
+//        } else {
+//            onCreatePreferenceFragment();
+//        }
     }
 
-    /**
-     * Wraps legacy {@link #onCreate(Bundle)} code for Android < 3 (i.e. API lvl
-     * < 11).
-     */
-    @SuppressWarnings("deprecation")
-    private void onCreatePreferenceActivity() {
-        //addPreferencesFromResource(R.xml.preferences);
-		addPreferencesFromResource(R.xml.settings);
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.removeItem(R.id.action_refresh);
+        menu.removeItem(R.id.search);
+        menu.removeGroup(R.id.group_torrent_navigation);
+        menu.removeGroup(R.id.group_seedbox);
+        return true;
     }
+//    /**
+//     * Wraps legacy {@link #onCreate(Bundle)} code for Android < 3 (i.e. API lvl
+//     * < 11).
+//     */
+//    @SuppressWarnings("deprecation")
+//    private void onCreatePreferenceActivity() {
+//        //addPreferencesFromResource(R.xml.preferences);
+//		addPreferencesFromResource(R.xml.settings);
+//    }
 
     /**
      * Wraps {@link #onCreate(Bundle)} code for Android >= 3 (i.e. API lvl >=

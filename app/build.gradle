@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "fr.scaron.sfreeboxtools"
-        minSdkVersion 9
-        targetSdkVersion 19
+        minSdkVersion 11
+        targetSdkVersion 21
         versionCode 1
         versionName "1.3"
     }

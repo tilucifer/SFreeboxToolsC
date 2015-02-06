@@ -160,18 +160,18 @@ public class FreeboxActivity extends AbstractActivity
 		TextView freeboxTitle = (TextView) findViewById(R.id.freebox_title);
 		if ("0".equals(title)) {
 			freeboxTitle.setVisibility(View.VISIBLE);
-			freeboxTitle.setText("Aucun t\351l\351charement");
+			freeboxTitle.setText("T\351l\351chs.(Aucun)");
 		} else {
 			freeboxTitle.setVisibility(View.GONE);
 		}
-		this.setTitle("(" + title + ")");
+		this.setTitle("T\351l\351chs. (" + title + ")");
 	}
 
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		log.trace("item selectionné de l'actionbar : " + item.getItemId()
+		log.trace("item selectionn\351 de l'actionbar : " + item.getItemId()
 				+ " | title " + item.getTitle());
 		// Handle item selection
 		switch (item.getItemId()) {
@@ -248,7 +248,7 @@ public class FreeboxActivity extends AbstractActivity
 				finish();
 			}
 		}else if (reponse instanceof Integer){
-			handle.sendMessage(handle.obtainMessage(Params.MSG_CNF, "Téléchargement (id="+reponse+") ajouté Ã  la freebox"));
+			handle.sendMessage(handle.obtainMessage(Params.MSG_CNF, "T\351l\351chargement (id="+reponse+") ajout\351 Ã  la freebox"));
 		}else if (reponse instanceof String) {
 			if (((FbxHttpRaster) httpRaster).getFinalRequestLabel()==null){
 				if (httpRaster.isFlagResponseError()) {
@@ -279,7 +279,7 @@ public class FreeboxActivity extends AbstractActivity
 			}
 			setRefreshVisible(false);
 			handle.sendMessage(handle.obtainMessage(Params.MSG_CNF,
-					"Liste des téléchargements"));
+					"Liste des t\351l\351chargements"));
 			launchUpdateTask();
 		}
 	}

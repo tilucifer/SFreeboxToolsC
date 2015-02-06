@@ -100,7 +100,7 @@ public class T411Activity extends AbstractActivity {// implements
 			} else {
 				t411Title.setVisibility(View.GONE);
 			}
-			this.setTitle("(" + title + ")");
+			this.setTitle("Mon T411 (" + title + ")");
 		}
 	}
 

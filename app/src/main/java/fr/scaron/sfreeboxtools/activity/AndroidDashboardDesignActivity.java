@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import fr.scaron.sfreeboxtools.R;
@@ -21,7 +22,7 @@ mailTo = "tilucifer@gmail.com", customReportContent = {
 		ReportField.APP_VERSION_CODE, ReportField.APP_VERSION_NAME,
 		ReportField.ANDROID_VERSION, ReportField.PHONE_MODEL,
 		ReportField.CUSTOM_DATA, ReportField.STACK_TRACE, ReportField.LOGCAT }, mode = ReportingInteractionMode.TOAST, resToastText = R.string.crash_toast_text)
-public class AndroidDashboardDesignActivity  extends Activity  {
+public class AndroidDashboardDesignActivity  extends AbstractActivity  {
 	private static final List<Activity> activities = new ArrayList<Activity>();
 	public static Logger log = LoggerFactory.getLogger(AndroidDashboardDesignActivity.class);
 	@Override
@@ -92,6 +93,17 @@ public class AndroidDashboardDesignActivity  extends Activity  {
 			}
 		});
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.removeItem(R.id.action_refresh);
+        menu.removeItem(R.id.search);
+        menu.removeGroup(R.id.group_torrent_navigation);
+        menu.removeGroup(R.id.group_seedbox);
+        return true;
+    }
+
 	@Override
 	public void onBackPressed() {
 		for (Activity activity : activities) {
