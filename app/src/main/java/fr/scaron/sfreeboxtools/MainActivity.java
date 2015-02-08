@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		String strVide = null;
 		char charPremier = strVide.charAt(0);
-		Log.d(MainActivity.class.getName(), "Premier caractère : "
+		Log.d(MainActivity.class.getName(), "Premier caractÃ¨re : "
 				+ charPremier);
 		setContentView(R.layout.activity_main);
 	}

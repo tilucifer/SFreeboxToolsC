@@ -1986,7 +1986,7 @@ containing a value of this type.
         public static final int pref_torrent=0x7f050003;
         public static final int preferences=0x7f050004;
         public static final int settings=0x7f050005;
-        public static final int settings_t411=0x7f050006;
+        public static final int t411settings=0x7f050006;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

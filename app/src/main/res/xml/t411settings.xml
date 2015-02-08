@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pref_header_torrent"
+    android:icon="@drawable/t411_icon_default"
+    android:summary="@string/pref_header_torrent"
+    android:persistent="false">
+
+    <EditTextPreference
+        android:key="pref_user_public_torrent"
+        android:title="@string/pref_title_user_public_torrent"
+        android:summary="@string/pref_summary_user_public_torrent">
+    </EditTextPreference>
+
+    <EditTextPreference
+        android:title="@string/pref_title_pwd_public_torrent"
+        android:key="pref_pwd_public_torrent"
+        android:summary="@string/pref_summary_pwd_public_torrent"
+        android:password="true">
+    </EditTextPreference>
+    <CheckBoxPreference
+        android:key="pref_notifactive_torrent"
+        android:title="@string/pref_title_notifactive_torrent" />
+    <ListPreference
+        android:key="pref_view_public_torrent"
+        android:title="Vue par défaut"
+        android:entries="@array/pref_entries_public_torrent"
+        android:entryValues="@array/pref_entriesvalues_public_torrent"/>
+
+
+
+</PreferenceScreen>

@@ -2,95 +2,95 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\org.slf4j\jcl-over-slf4j\1.7.10\ce49a188721bc39cb9710b346ae9b7ec27b0f36b\jcl-over-slf4j-1.7.10.jar"
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\org.slf4j\jcl-over-slf4j\1.7.10\ce49a188721bc39cb9710b346ae9b7ec27b0f36b\jcl-over-slf4j-1.7.10.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="ce49a188721bc39cb9710b346ae9b7ec27b0f36b">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\jcl-over-slf4j-1.7.10-c9c8645c361227ada30b1ee79b6b13b97fed9691.jar" />
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\jcl-over-slf4j-1.7.10-68623eaf24a7b98401d70a0d4e2ff7df3b108010.jar" />
     </item>
     <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\libs\jsoup-1.7.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ab1f22cadc2f8b514e55ba368f5128056fe304da">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\jsoup-1.7.3-fb5dc316d5200df5803989d2fabfaccbed35da39.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\libs\org-apache-commons-codec.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d9c6412a9f19fc03760ca0cf4708bca50f57a80c">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\org-apache-commons-codec-0a26fcea9ddddf899b4ce5f7df4bf4d89bb1143c.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\internal_impl-21.0.3-2dab386dc8613deb365d4d762b0b52ab29964b43.jar" />
-    </item>
-    <item
-        jar="C:\APPLIDEV\adt\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-510016b0d2ff7006ca49116ec2770ba63b29524c.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\com.github.tony19\apktool-lib\1.4.4-3\1d0125bf578cb30dd192496db56c2d937495248a\apktool-lib-1.4.4-3.jar"
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\com.github.tony19\apktool-lib\1.4.4-3\1d0125bf578cb30dd192496db56c2d937495248a\apktool-lib-1.4.4-3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="1d0125bf578cb30dd192496db56c2d937495248a">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\apktool-lib-1.4.4-3-261e0b3bfd74cdb4a6151d906211f33f659d1268.jar" />
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\apktool-lib-1.4.4-3-78f764b9c7e3157667150bca89a18da3c857831c.jar" />
     </item>
     <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\classes-95840b5257890bab37af40d35a4e48749b33eef8.jar" />
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\classes-6ce7d172b0ad64e752ebdd262414ed0b861447ed.jar" />
     </item>
     <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\ch.acra\acra\4.5.0\44a5eb946e0d83eed4a0128d877ca1fd8168b83a\acra-4.5.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="44a5eb946e0d83eed4a0128d877ca1fd8168b83a">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\acra-4.5.0-e0858de71c8d1e5629cad36cabc6283db16a07cd.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\com.github.tony19\logback-android-core\1.1.1-3\aea03aa7edb044688e6f15b94b987d9960133dae\logback-android-core-1.1.1-3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="aea03aa7edb044688e6f15b94b987d9960133dae">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\logback-android-core-1.1.1-3-132f187d63d25aa9c4e6eb78f0dc38406ed77829.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\com.github.tony19\logback-android-classic\1.1.1-3\f36abbae255635de1ff54ea0ea1452aca4ee921e\logback-android-classic-1.1.1-3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f36abbae255635de1ff54ea0ea1452aca4ee921e">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\logback-android-classic-1.1.1-3-d5938ea51f9552e29ac9a6993382fe776635c17d.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.10\5b338f206827d88acd890739f400a9b7664e5984\slf4j-api-1.7.10.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5b338f206827d88acd890739f400a9b7664e5984">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\slf4j-api-1.7.10-140aabec2e66cacc11b95caa0edf175eaf0dfb8e.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\libs\android-async-http-1.4.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3bae85a076241828810bf8fbcc12e5891d5fc34c">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\android-async-http-1.4.4-90fe9bfeab9d4174ecef9dec17e63fe171751117.jar" />
-    </item>
-    <item
-        jar="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\caron-08651\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\release\classes-84cef863a9ef57d8aa8fdc7df2c176b7fdeabe69.jar" />
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\classes-07d85aa874c8f6183ade375f9ee1a3c9610fff8f.jar" />
+    </item>
+    <item
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\libs\org-apache-commons-codec.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d9c6412a9f19fc03760ca0cf4708bca50f57a80c">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\org-apache-commons-codec-fcda4b4e6d8a1cd4f4141190a46b38a20f10e921.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.10\5b338f206827d88acd890739f400a9b7664e5984\slf4j-api-1.7.10.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5b338f206827d88acd890739f400a9b7664e5984">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\slf4j-api-1.7.10-875c75e92c8ddef7b4e095f2e709693a150ef375.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\ch.acra\acra\4.5.0\44a5eb946e0d83eed4a0128d877ca1fd8168b83a\acra-4.5.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="44a5eb946e0d83eed4a0128d877ca1fd8168b83a">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\acra-4.5.0-eaee1e14d760e5b3de922ab73b57cd05dc59ea20.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\com.github.tony19\logback-android-core\1.1.1-3\aea03aa7edb044688e6f15b94b987d9960133dae\logback-android-core-1.1.1-3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aea03aa7edb044688e6f15b94b987d9960133dae">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\logback-android-core-1.1.1-3-50b8e9369ce01e99390ac666b49c6967dcb3d5a7.jar" />
+    </item>
+    <item
+        jar="D:\Devs\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-87dfbe857eb8b7637cb4843b6bb595ffc185ca54.jar" />
+    </item>
+    <item
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\libs\android-async-http-1.4.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3bae85a076241828810bf8fbcc12e5891d5fc34c">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.4-d778416bb6168ac3565c42380907c6630861c694.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sébastien\.gradle\caches\modules-2\files-2.1\com.github.tony19\logback-android-classic\1.1.1-3\f36abbae255635de1ff54ea0ea1452aca4ee921e\logback-android-classic-1.1.1-3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f36abbae255635de1ff54ea0ea1452aca4ee921e">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\logback-android-classic-1.1.1-3-f7a41010da14b1050bea890380a17d784cf1538c.jar" />
+    </item>
+    <item
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-42b41517779730f45a10110b350702a5a56f674a.jar" />
+    </item>
+    <item
+        jar="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\libs\jsoup-1.7.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ab1f22cadc2f8b514e55ba368f5128056fe304da">
+        <dex dex="D:\Devs\Android\AndroidStudioProjects\SFreeboxToolsC\app\build\intermediates\pre-dexed\debug\jsoup-1.7.3-e955bdf954a96af9fb330bf3310a6c2a0a55ff51.jar" />
     </item>
 
 </items>
