@@ -44,7 +44,7 @@ public class Params {
 	public final static int FBX_REQ_CONFIG = 22;
 	
 	public static boolean LOGGED_T411;
-	public static String T411_URL = "http://www.t411.me";
+	public static String T411_URL = "http://www.t411.io";
 	//public static String T411_URL = "http://www.t411.me:8080";
     //public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/profile/";
     public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
