@@ -7,6 +7,8 @@ import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fr.scaron.sfreeboxtools.model.IPUtils;
+
 public class Params {
 	public static Logger log = LoggerFactory.getLogger(Params.class);
 
@@ -44,7 +46,12 @@ public class Params {
 	public final static int FBX_REQ_CONFIG = 22;
 	
 	public static boolean LOGGED_T411;
-	public static String T411_URL = "http://www.t411.io";
+	public static boolean T411_SERVER_IS_IP = false;
+	public static boolean T411_TRACKER_IS_IP = false;
+	public static String T411_TRACKER_IP = "46.246.117.194"; //http://tracker.t411.io:56969 parhttp://46.246.117.194:56969/
+	public static String T411_DNS_COURT = "t411.io";
+	public static String T411_DNS_WWW = "www."+T411_DNS_COURT;
+	public static String T411_URL = "http://"+T411_DNS_WWW;
 	//public static String T411_URL = "http://www.t411.me:8080";
     //public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/profile/";
     public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
@@ -53,11 +60,11 @@ public class Params {
     public static String T411_URL_BOOKMARKS = T411_URL+"/my/bookmarks/";
     public static String T411_URL_GET_TORRENT = T411_URL+"/torrents/download/"; //?=id+ ID
     public static String T411_URL_GET_PROFILE = T411_URL+"/users/profile/";
-    public static final String T411_URL_TOP100 = T411_URL+"/top/100/";
-    public static final String T411_URL_TOPTODAY = T411_URL+"/top/today/";
-    public static final String T411_URL_TOPWEEK = T411_URL+"/top/week/";
-    public static final String T411_URL_TOPMONTH = T411_URL+"/top/month/";
-    public static final String T411_URL_SUGGEST = "http://api.t411.me/suggest";//?term=tot
+    public static String T411_URL_TOP100 = T411_URL+"/top/100/";
+    public static String T411_URL_TOPTODAY = T411_URL+"/top/today/";
+    public static String T411_URL_TOPWEEK = T411_URL+"/top/week/";
+    public static String T411_URL_TOPMONTH = T411_URL+"/top/month/";
+    public static final String T411_URL_SUGGEST = "http://api"+T411_DNS_COURT+"/suggest";//?term=tot
     //
     //reponse : 
     //	["the walking dead","the walking dead s04","walking dead","walking dead s04","the walking dead saison 4","the walking dead saison 3","the walking dead saison 2","walking","the walking dead s04e09","The Walking Dead"]
@@ -189,7 +196,7 @@ public class Params {
 	
 	public static String FBX_SESSION_PWD = null;
 	
-	public static void reinit(){
+	public static void reinitFreebox(){
 		FBX_GET_LOGIN = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/";
 		FBX_GET_VERSION = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api_version";
 		FBX_POST_LOGIN = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/";
@@ -199,6 +206,24 @@ public class Params {
 		FBX_POST_ADD = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/downloads/add";
 		FBX_POST_LOGOUT = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/login/logout/";
 		FBX_GET_CONFIG = "http://"+FREEBOX_IP+":"+FREEBOX_PORT+"/api/v1/connection/config/";
+	}
+
+	public static void reinitT411(){
+		if (T411_SERVER_IS_IP){
+			T411_DNS_WWW = T411_DNS_COURT;
+		}else{
+			T411_DNS_WWW = "www."+T411_DNS_COURT;
+		}
+		T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
+		T411_URL_GET_PREZ = T411_URL+"/torrents/torrents/"; //+?id= ID
+		T411_URL_SEARCH = T411_URL+"/torrents/search/?search="; // + terms
+		T411_URL_BOOKMARKS = T411_URL+"/my/bookmarks/";
+		T411_URL_GET_TORRENT = T411_URL+"/torrents/download/"; //?=id+ ID
+		T411_URL_GET_PROFILE = T411_URL+"/users/profile/";
+		T411_URL_TOP100 = T411_URL+"/top/100/";
+		T411_URL_TOPTODAY = T411_URL+"/top/today/";
+		T411_URL_TOPWEEK = T411_URL+"/top/week/";
+		T411_URL_TOPMONTH = T411_URL+"/top/month/";
 	}
 	
 	public static String hmacSha1(String value, String key) {

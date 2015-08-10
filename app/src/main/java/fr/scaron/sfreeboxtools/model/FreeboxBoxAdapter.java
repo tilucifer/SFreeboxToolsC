@@ -192,7 +192,7 @@ public class FreeboxBoxAdapter extends ArrayAdapter<FreeboxBox> implements Filte
 							Params.FREEBOX_IP = "mafreebox.free.fr";
                             Params.FREEBOX_PORT = "80";
                             myDB.remove("app_token");
-                            Params.reinit();
+                            Params.reinitFreebox();
 							
 							FreeboxControler.delOldPrefs(follower);
 

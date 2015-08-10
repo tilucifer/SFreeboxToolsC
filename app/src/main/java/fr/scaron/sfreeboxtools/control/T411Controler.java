@@ -27,6 +27,7 @@ import fr.scaron.sfreeboxtools.model.BSize;
 import fr.scaron.sfreeboxtools.model.Base64;
 import fr.scaron.sfreeboxtools.model.FbxHttpRaster;
 import fr.scaron.sfreeboxtools.model.HttpRaster;
+import fr.scaron.sfreeboxtools.model.IPUtils;
 import fr.scaron.sfreeboxtools.model.T411GetAvatarFile;
 import fr.scaron.sfreeboxtools.model.T411GetProfile;
 import fr.scaron.sfreeboxtools.model.T411GetTorrent;
@@ -35,6 +36,7 @@ import fr.scaron.sfreeboxtools.model.T411Login;
 import fr.scaron.sfreeboxtools.model.T411Search;
 import fr.scaron.sfreeboxtools.model.T411Torrent;
 import fr.scaron.sfreeboxtools.model.T411Torrrents;
+import fr.scaron.sfreeboxtools.model.TinyDB;
 import fr.scaron.sfreeboxtools.view.CategoryIcon;
 
 public class T411Controler {
@@ -56,9 +58,29 @@ public class T411Controler {
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(follower.getBaseContext());
 
+		TinyDB myDB = new TinyDB(follower);
+		String ip = "";
+		String ipTracker = "";
 		boolean errorParams=false;		
 		if (!settings.contains("pref_user_public_torrent")) errorParams=true;	
 		if (!settings.contains("pref_user_public_torrent")) errorParams=true;
+		if (!settings.contains("pref_urlaccess_public_torrent"))
+			errorParams = true;
+		if (!errorParams) {
+			ip = myDB.getString("pref_urlaccess_public_torrent");
+			if (ip.isEmpty())
+				errorParams = true;
+			Params.T411_DNS_COURT = ip;
+			Params.T411_SERVER_IS_IP = IPUtils.isIpAddress(Params.T411_DNS_COURT);
+
+			if (Params.T411_SERVER_IS_IP && settings.contains("pref_urlaccess_public_torrent")) {
+				ipTracker = myDB.getString("pref_urlaccess_public_torrent");
+				if (ipTracker.isEmpty())
+					errorParams = true;
+				Params.T411_TRACKER_IP = ipTracker;
+			}
+			Params.reinitT411();
+		}
 		
 		return errorParams;
 	}
@@ -662,7 +684,7 @@ public class T411Controler {
 		        reponse = "Le fichier ("+t411GetTorrentFile.getId()+") "+filename+" est envoyé à la freebox !";;
 		        if (Params.FBX_POST_ADD==null){
 					FreeboxControler.checkGlobalPrefs(follower);
-		        	Params.reinit();
+		        	Params.reinitFreebox();
 		        }
 		        
 

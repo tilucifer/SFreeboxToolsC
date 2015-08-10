@@ -957,7 +957,7 @@ public class FreeboxControler {
 				port = settings.getString("pref_port_public_freebox", "80");
 				Params.FREEBOX_PORT = port;
 			}
-			Params.reinit();
+			Params.reinitFreebox();
 			if (Params.FBX_GET_LOGIN == null)
 				errorParams = true;
 		}

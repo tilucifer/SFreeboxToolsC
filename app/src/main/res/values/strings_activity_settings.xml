@@ -17,5 +17,9 @@
 	<string name="pref_title_pwd_public_torrent">Mot de passe</string>
 	<string name="pref_summary_pwd_public_torrent">Entrez le mot de passe pour accéder au compte T411</string>
     <string name="pref_title_notifactive_torrent">Notifications</string>
+	<string name="pref_title_urlaccess_public_torrent">DNS/IP T411</string>
+	<string name="pref_summary_urlaccess_public_torrent">Entrez le DNS court ou l'IP d\'accès àT411</string>
+	<string name="pref_title_urltracker_public_torrent">Utilisateur</string>
+	<string name="pref_summary_urltracker_public_torrent">Entrez l\'IP des trackers T411</string>
 
 </resources>
