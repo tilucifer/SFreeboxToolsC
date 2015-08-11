@@ -58,30 +58,54 @@ public class T411Controler {
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(follower.getBaseContext());
 
+		log.info("checkGlobalPrefs : incoming");
 		TinyDB myDB = new TinyDB(follower);
 		String ip = "";
 		String ipTracker = "";
-		boolean errorParams=false;		
-		if (!settings.contains("pref_user_public_torrent")) errorParams=true;	
-		if (!settings.contains("pref_user_public_torrent")) errorParams=true;
-		if (!settings.contains("pref_urlaccess_public_torrent"))
+		boolean errorParams=false;
+
+		android.provider.Settings.System.putString(follower.getContentResolver(), android.provider.Settings.System.WIFI_STATIC_DNS1, "8.8.8.8");
+		android.provider.Settings.System.putString(follower.getContentResolver(), android.provider.Settings.System.WIFI_STATIC_DNS2, "8.8.8.4");
+
+		if (!settings.contains("pref_user_public_torrent")) {
+			errorParams=true;
+			log.info("checkGlobalPrefs : pref_user_public_torrent is not set");
+		}
+		if (!settings.contains("pref_pwd_public_torrent")) {
+			errorParams=true;
+			log.info("checkGlobalPrefs : pref_pwd_public_torrent is not set");
+		}
+		log.info("checkGlobalPrefs : pref_pwd_public_torrent is set ? "+errorParams);
+		if (!settings.contains("pref_urlaccess_public_torrent")) {
 			errorParams = true;
+			log.info("checkGlobalPrefs : pref_urlaccess_public_torrent is not set");
+		}
 		if (!errorParams) {
 			ip = myDB.getString("pref_urlaccess_public_torrent");
-			if (ip.isEmpty())
+			if (ip.isEmpty())	{
 				errorParams = true;
+			}
 			Params.T411_DNS_COURT = ip;
 			Params.T411_SERVER_IS_IP = IPUtils.isIpAddress(Params.T411_DNS_COURT);
 
-			if (Params.T411_SERVER_IS_IP && settings.contains("pref_urlaccess_public_torrent")) {
-				ipTracker = myDB.getString("pref_urlaccess_public_torrent");
-				if (ipTracker.isEmpty())
+			if (Params.T411_SERVER_IS_IP && settings.contains("pref_urltracker_public_torrent")) {
+
+				log.info("checkGlobalPrefs : T411_SERVER_IS_IP and pref_urltracker_public_torrent is set");
+				ipTracker = myDB.getString("pref_urltracker_public_torrent");
+				if (ipTracker.isEmpty())	{
+					log.info("checkGlobalPrefs : pref_urltracker_public_torrent is not set");
 					errorParams = true;
+				}
 				Params.T411_TRACKER_IP = ipTracker;
 			}
-			Params.reinitT411();
 		}
-		
+		if (!errorParams){
+			log.info("checkGlobalPrefs : no error so reinitT411 (T411_SERVER_IS_IP:"+Params.T411_SERVER_IS_IP+" | T411_DNS_COURT:"+Params.T411_DNS_COURT+" | T411_TRACKER_IP:"+Params.T411_TRACKER_IP);
+			Params.reinitT411();
+			log.info("checkGlobalPrefs : Control of T411_URL_LOGIN:"+Params.T411_URL_LOGIN);
+		}
+
+		log.info("checkGlobalPrefs : outgoing with result "+errorParams);
 		return errorParams;
 	}
 

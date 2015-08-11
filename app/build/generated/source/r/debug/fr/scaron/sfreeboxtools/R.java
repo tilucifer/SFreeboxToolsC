@@ -1719,15 +1719,19 @@ containing a value of this type.
         public static final int pref_summary_ip_public_freebox=0x7f06002c;
         public static final int pref_summary_port_public_freebox=0x7f06002d;
         public static final int pref_summary_pwd_public_torrent=0x7f06002e;
-        public static final int pref_summary_user_public_torrent=0x7f06002f;
-        public static final int pref_title_ip_public_freebox=0x7f060030;
-        public static final int pref_title_notifactive_torrent=0x7f060031;
-        public static final int pref_title_port_public_freebox=0x7f060032;
-        public static final int pref_title_pwd_public_torrent=0x7f060033;
-        public static final int pref_title_user_public_torrent=0x7f060034;
-        public static final int statistics=0x7f060035;
-        public static final int title_activity_settings=0x7f060036;
-        public static final int top_100=0x7f060037;
+        public static final int pref_summary_urlaccess_public_torrent=0x7f06002f;
+        public static final int pref_summary_urltracker_public_torrent=0x7f060030;
+        public static final int pref_summary_user_public_torrent=0x7f060031;
+        public static final int pref_title_ip_public_freebox=0x7f060032;
+        public static final int pref_title_notifactive_torrent=0x7f060033;
+        public static final int pref_title_port_public_freebox=0x7f060034;
+        public static final int pref_title_pwd_public_torrent=0x7f060035;
+        public static final int pref_title_urlaccess_public_torrent=0x7f060036;
+        public static final int pref_title_urltracker_public_torrent=0x7f060037;
+        public static final int pref_title_user_public_torrent=0x7f060038;
+        public static final int statistics=0x7f060039;
+        public static final int title_activity_settings=0x7f06003a;
+        public static final int top_100=0x7f06003b;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
@@ -1986,8 +1990,7 @@ containing a value of this type.
         public static final int pref_torrent=0x7f050003;
         public static final int preferences=0x7f050004;
         public static final int settings=0x7f050005;
-        public static final int settings_t411=0x7f050006;
-        public static final int t411settings=0x7f050007;
+        public static final int t411settings=0x7f050006;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

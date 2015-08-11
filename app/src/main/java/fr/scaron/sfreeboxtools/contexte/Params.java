@@ -49,7 +49,7 @@ public class Params {
 	public static boolean T411_SERVER_IS_IP = false;
 	public static boolean T411_TRACKER_IS_IP = false;
 	public static String T411_TRACKER_IP = "46.246.117.194"; //http://tracker.t411.io:56969 parhttp://46.246.117.194:56969/
-	public static String T411_DNS_COURT = "t411.io";
+	public static String T411_DNS_COURT = "t411.io"; //108.162.204.254 t411.io
 	public static String T411_DNS_WWW = "www."+T411_DNS_COURT;
 	public static String T411_URL = "http://"+T411_DNS_WWW;
 	//public static String T411_URL = "http://www.t411.me:8080";
@@ -214,6 +214,7 @@ public class Params {
 		}else{
 			T411_DNS_WWW = "www."+T411_DNS_COURT;
 		}
+		T411_URL = "http://"+T411_DNS_WWW;
 		T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
 		T411_URL_GET_PREZ = T411_URL+"/torrents/torrents/"; //+?id= ID
 		T411_URL_SEARCH = T411_URL+"/torrents/search/?search="; // + terms

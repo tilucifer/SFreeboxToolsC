@@ -16,7 +16,7 @@
   <!-- Create a file appender for Http-level messages -->
   <appender name="logcat" class="ch.qos.logback.core.FileAppender">
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>DEBUG</level>
+      <level>TRACE</level>
       <onMatch>ACCEPT</onMatch>
       <onMismatch>ACCEPT</onMismatch>
     </filter>
@@ -32,7 +32,7 @@
   <!-- Create a file appender for Http-level messages -->
   <appender name="HttpLog" class="ch.qos.logback.core.FileAppender">
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>DEBUG</level>
+      <level>TRACE</level>
       <onMatch>ACCEPT</onMatch>
       <onMismatch>ACCEPT</onMismatch>
     </filter>
@@ -49,7 +49,7 @@
   <!-- Create a file appender for TRACE-level messages -->
   <appender name="TraceLog" class="ch.qos.logback.core.FileAppender">
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>DEBUG</level>
+      <level>TRACE</level>
       <onMatch>ACCEPT</onMatch>
       <onMismatch>ACCEPT</onMismatch>
     </filter>
@@ -65,7 +65,7 @@
   <!-- Create a file appender for DEBUG-level messages -->
   <appender name="DebugLog" class="ch.qos.logback.core.FileAppender">
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>DEBUG</level>
+      <level>TRACE</level>
       <onMatch>ACCEPT</onMatch>
       <onMismatch>ACCEPT</onMismatch>
     </filter>
@@ -116,7 +116,7 @@
   </logger> 
 
   <!-- Write DEBUG (and higher-level) messages to logcat -->
-  <root level="DEBUG">
+  <root level="TRACE">
     <appender-ref ref="logcat" />
   </root>
 </configuration>
