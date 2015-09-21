@@ -14,6 +14,7 @@
 	<uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <application android:name="fr.scaron.sfreeboxtools.SFreeboxTools"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
