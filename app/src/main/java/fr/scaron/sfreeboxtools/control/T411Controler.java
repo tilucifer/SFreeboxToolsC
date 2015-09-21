@@ -73,12 +73,12 @@ public class T411Controler {
 			Params.T411_DNS_COURT = ip;
 			Params.T411_SERVER_IS_IP = IPUtils.isIpAddress(Params.T411_DNS_COURT);
 
-			if (Params.T411_SERVER_IS_IP && settings.contains("pref_urlaccess_public_torrent")) {
-				ipTracker = myDB.getString("pref_urlaccess_public_torrent");
+			/*if (Params.T411_SERVER_IS_IP && settings.contains("pref_urltracker_public_torrent")) {
+				ipTracker = myDB.getString("pref_urltracker_public_torrent");
 				if (ipTracker.isEmpty())
 					errorParams = true;
 				Params.T411_TRACKER_IP = ipTracker;
-			}
+			}*/
 			Params.reinitT411();
 		}
 		
