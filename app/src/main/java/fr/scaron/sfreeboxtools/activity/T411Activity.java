@@ -226,9 +226,13 @@ public class T411Activity extends AbstractActivity {// implements
 		mAdapter = new SimpleCursorAdapter(T411Activity.this,
 				android.R.layout.simple_list_item_1, mCursor, from, to,
 				CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-		//searchView.setSuggestionsAdapter(mAdapter);
+
+
+		searchView.setSuggestionsAdapter(mAdapter);
 		//android.support.v4.widget.CursorAdapter monAdapter = null;
 		//searchView.setSuggestionsAdapter(monAdapter);
+
+
 		SearchView.OnSuggestionListener suggestListener = new SearchView.OnSuggestionListener() {
 			@Override
 			public boolean onSuggestionClick(int id) {
