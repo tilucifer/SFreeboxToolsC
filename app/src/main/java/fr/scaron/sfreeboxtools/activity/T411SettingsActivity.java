@@ -5,8 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.Menu;
-import android.view.View;
-import android.widget.TextView;
 
 import fr.scaron.sfreeboxtools.R;
 

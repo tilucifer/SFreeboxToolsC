@@ -74,6 +74,25 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="fr.scaron.sfreeboxtools.activity.FavSearchSettingsActivity"
+            android:label="@string/pref_header_torrent"
+            android:parentActivityName="fr.scaron.sfreeboxtools.activity.UserPrefsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fr.scaron.sfreeboxtools.activity.UserPrefsActivity" />
+            <intent-filter>
+                <action android:name="fr.scaron.sfreeboxtools.activity.FavSearchSettingsActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+
 
         <activity
             android:name="fr.scaron.sfreeboxtools.activity.GetDownloadActivity"

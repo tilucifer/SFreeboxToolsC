@@ -40,7 +40,8 @@ public class FavSearchSettingsActivity extends AbstractActivity
     private TinyDB myDB;
 
 	public static Logger log = LoggerFactory.getLogger(FavSearchSettingsActivity.class);
-    FreeboxBoxAdapter adapter;
+	RecyclerView recyclerView;
+	FavSearchAdapter mAdapter;
 
 	@Override
 	protected void onPause() {
@@ -74,7 +75,7 @@ public class FavSearchSettingsActivity extends AbstractActivity
 		AndroidDashboardDesignActivity.addActivity(this);
 		log.info("est en creation");
 		setContentView(R.layout.favsearch_list_layout);
-		super.setBarIcon(R.drawable.freebox_icon);
+		super.setBarIcon(android.R.drawable.ic_menu_search);
 		setRefreshVisible(true);
         setupList();
 	}
@@ -93,17 +94,7 @@ public class FavSearchSettingsActivity extends AbstractActivity
 
 	@Override
 	public void updateTitle(String title) {
-        int nbFreeboxs = Integer.valueOf(title);
-		TextView freeboxTitle = (TextView) findViewById(R.id.freebox_title_box);
-//		if ("0".equals(title)||"1".equals(title)) {
-        if (nbFreeboxs<0){
-			freeboxTitle.setVisibility(View.VISIBLE);
-			freeboxTitle.setText("Aucune freebox associ\351e");
-            this.setTitle("Freeboxs (0)");
-		} else {
-			freeboxTitle.setVisibility(View.GONE);
-		}
-		this.setTitle("Freeboxs (" + title + ")");
+		this.setTitle("Favoris (" + title + ")");
 		setRefreshVisible(false);
 	}
 
@@ -146,24 +137,25 @@ public class FavSearchSettingsActivity extends AbstractActivity
 
 			// this is data fro recycler view
             for (String t411Suggestion : t411Suggestions) {
-				FavSearch favSearch = new FavSearch(index, t411Suggestion);
+				FavSearch favSearch = new FavSearch(index+1, t411Suggestion);
+				log.info("favsearch n°"+index+" : " + t411Suggestion);
 				favSearches.add(favSearch);
                 index++;
             }
         }
 
 		// 1. get a reference to recyclerView
-		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.favsearchRecyclerView);
-
-		// 2. set layoutManger
+		recyclerView = (RecyclerView) findViewById(R.id.favsearchRecyclerView);
+		// 2. create an adapter
+		mAdapter = new FavSearchAdapter(this, favSearches, recyclerView);
+		// 3. set layoutManger
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
-		// 3. create an adapter
-		FavSearchAdapter mAdapter = new FavSearchAdapter(favSearches);
-		// 4. set adapter
-		recyclerView.setAdapter(mAdapter);
-		// 5. set item animator to DefaultAnimator
+		// 4. set item animator to DefaultAnimator
 		recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+		// 5. set adapter
+		recyclerView.setAdapter(mAdapter);
+		// 6. notify adapter with new datas
+		mAdapter.notifyDataSetChanged();
 
 
 		setRefreshVisible(false);

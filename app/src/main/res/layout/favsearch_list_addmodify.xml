@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:padding="15dip">
+ 
+  <TextView
+    android:id="@+id/favsearchListAddModify_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Saisir la nouvelle valeur"
+    android:paddingBottom="10dip" />
+ 
+  <EditText 
+    android:id="@+id/favsearchListAddModify_name"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/favsearchListAddModify_title"  />
+ 
+</RelativeLayout>

@@ -207,7 +207,7 @@ public class FreeboxBoxAdapter extends ArrayAdapter<FreeboxBox> implements Filte
                             adb.setView(alertDialogView);
                      
                             //On donne un titre à l'AlertDialog
-                            adb.setTitle("Titre de notre boite de dialogue");
+                            adb.setTitle("Ajout d'une freebox");
                      
                             //On modifie l'icône de l'AlertDialog pour le fun ;)
                             adb.setIcon(android.R.drawable.ic_dialog_alert);

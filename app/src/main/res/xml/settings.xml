@@ -6,7 +6,7 @@
     <PreferenceScreen 
         android:title="@string/pref_header_freebox"
         android:icon="@drawable/freebox_connect_icon_default"
-        android:summary="@string/pref_header_freebox"
+        android:summary="@string/pref_summary_freebox"
         android:persistent="false">
 
 
@@ -34,7 +34,7 @@
     <PreferenceScreen 
         android:title="@string/pref_header_torrent"
         android:icon="@drawable/t411_icon_default"
-        android:summary="@string/pref_header_torrent"
+        android:summary="@string/pref_summary_torrent"
         android:persistent="false">
 
         <intent android:action="fr.scaron.sfreeboxtools.activity.T411SettingsActivity"/>
@@ -63,12 +63,10 @@
 	
 	</PreferenceScreen>
 
-
-
 	<PreferenceScreen
-		android:title="@string/pref_header_torrent"
-		android:icon="@drawable/t411_icon_default"
-		android:summary="@string/pref_header_torrent"
+		android:title="@string/pref_header_favsearch"
+		android:icon="@android:drawable/ic_menu_search"
+		android:summary="@string/pref_summary_favsearch"
 		android:persistent="false">
 
 		<intent android:action="fr.scaron.sfreeboxtools.activity.FavSearchSettingsActivity"/>

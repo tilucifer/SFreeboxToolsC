@@ -5,6 +5,7 @@
     <!-- Strings related to Settings -->
 	<!-- Freebox settings -->
 	<string name="pref_header_freebox">Freebox</string>
+	<string name="pref_summary_freebox">Paramètrez vos Freebox</string>
 	<string name="pref_title_ip_public_freebox">IP d\'accès</string>
 	<string name="pref_summary_ip_public_freebox">Entrez l\'ip d\'accès public de votre freebox</string>
 	<string name="pref_title_port_public_freebox">Port d\'accès</string>
@@ -12,6 +13,7 @@
     
 	<!-- Torrent settings -->
     <string name="pref_header_torrent">Torrent 411</string>
+	<string name="pref_summary_torrent">Paramètrez votre accès Torrent 411</string>
 	<string name="pref_title_user_public_torrent">Utilisateur</string>
 	<string name="pref_summary_user_public_torrent">Entrez l\'utilisateur d\'accès au compte T411</string>
 	<string name="pref_title_pwd_public_torrent">Mot de passe</string>
@@ -21,5 +23,10 @@
 	<string name="pref_summary_urlaccess_public_torrent">Entrez le DNS court ou l\'IP d\'accès àT411</string>
 	<string name="pref_title_urltracker_public_torrent">Tracker T411</string>
 	<string name="pref_summary_urltracker_public_torrent">Entrez l\'IP des trackers T411</string>
+
+	<!-- FavSearch settings -->
+
+	<string name="pref_header_favsearch">Vos recherches</string>
+	<string name="pref_summary_favsearch">Paramètrez vos recherches favorites</string>
 
 </resources>
