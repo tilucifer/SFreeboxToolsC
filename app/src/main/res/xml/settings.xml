@@ -63,4 +63,15 @@
 	
 	</PreferenceScreen>
 
+
+
+	<PreferenceScreen
+		android:title="@string/pref_header_torrent"
+		android:icon="@drawable/t411_icon_default"
+		android:summary="@string/pref_header_torrent"
+		android:persistent="false">
+
+		<intent android:action="fr.scaron.sfreeboxtools.activity.FavSearchSettingsActivity"/>
+	</PreferenceScreen>
+
 </PreferenceScreen>
