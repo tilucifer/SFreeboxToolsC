@@ -2,7 +2,6 @@ package fr.scaron.sfreeboxtools.model;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
@@ -20,9 +19,6 @@ import java.util.List;
 
 import fr.scaron.sfreeboxtools.R;
 import fr.scaron.sfreeboxtools.activity.AbstractActivity;
-import fr.scaron.sfreeboxtools.connect.HttpConnect;
-import fr.scaron.sfreeboxtools.contexte.Params;
-import fr.scaron.sfreeboxtools.control.FreeboxControler;
 
 /**
  * Created by tilucifer on 27/10/2015.
@@ -32,16 +28,21 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
     private List<FavSearch> itemsData;
     AbstractActivity follower;
     RecyclerView recyclerView;
+    private TinyDB myDB;
 
-    public FavSearchAdapter(AbstractActivity follower, List<FavSearch> itemsData, RecyclerView recyclerView) {
+    public FavSearchAdapter(AbstractActivity follower, RecyclerView recyclerView) {//, List<FavSearch> itemsData
         this.follower = follower;
+
+        initItemsData();
+        follower.updateTitle(String.valueOf(itemsData.size()));
+
         log.info("on set les données de l'adapteur avec une liste null ? "+(itemsData==null));
         if (itemsData==null||itemsData.size()==0){
             log.info("aucune donnée dans la liste :(");
             this.itemsData = new ArrayList<FavSearch>();
         }else{
             log.info("on ajoute "+itemsData.size()+" élément(s) dans la liste");
-            this.itemsData = itemsData;
+            //this.itemsData = itemsData;
         }
         follower.updateTitle(String.valueOf(itemsData.size()));
 
@@ -73,14 +74,13 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
                             final int swipeDir) {
                         switch (swipeDir){
                             case ItemTouchHelper.LEFT:
-                                FavSearchAdapter.this.itemsData.remove(viewHolder.getAdapterPosition());
-                                notifyDataSetChanged();
-                                //notifyItemRemoved(viewHolder.getAdapterPosition());
+                                showDeleteDialog(viewHolder.getAdapterPosition());
                                 break;
                             case ItemTouchHelper.RIGHT:
-                                showDialog(viewHolder.getAdapterPosition());
+                                showModifyDialog(viewHolder.getAdapterPosition());
                                 break;
                             default:
+                                notifyDataSetChanged();
                                 break;
                         }
                     }
@@ -94,7 +94,48 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
     }
 
 
-    private void showDialog(final int itemPosition){
+    private void showDeleteDialog(final int itemPosition){
+
+        final View alertDialogView = LayoutInflater.from(follower.getApplicationContext()).inflate(R.layout.favsearch_list_delete, null);
+
+        TextView tv = (TextView)alertDialogView.findViewById(R.id.favsearchListDelete_title);
+        tv.setText("Le favori "+FavSearchAdapter.this.itemsData.get(itemPosition).getName()+" sera supprimé !");
+        //Création de l'AlertDialog
+        AlertDialog.Builder adb = new AlertDialog.Builder(follower, AlertDialog.THEME_HOLO_DARK);
+
+        //On affecte la vue personnalisé que l'on a crée à notre AlertDialog
+        adb.setView(alertDialogView);
+
+        //On donne un titre à l'AlertDialog
+        adb.setTitle("Supprimer le favori ?");
+
+        //On modifie l'icône de l'AlertDialog pour le fun ;)
+        adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+        //On affecte un bouton "OK" à notre AlertDialog et on lui affecte un évènement
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                //Lorsque l'on cliquera sur le bouton "OK", on récupère l'EditText correspondant à notre vue personnalisée (cad à alertDialogView)
+                FavSearchAdapter.this.itemsData.remove(itemPosition);
+                sayDataSetChanged();
+                //notifyItemRemoved(viewHolder.getAdapterPosition());
+
+            }
+        });
+
+        //On crée un bouton "Annuler" à notre AlertDialog et on lui affecte un évènement
+        adb.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                //notifyItemChanged(itemPosition);
+                sayDataSetChanged();
+                //Lorsque l'on cliquera sur annuler on quittera l'application
+                dialog.dismiss();
+            } });
+        adb.show();
+    }
+
+    private void showModifyDialog(final int itemPosition){
 
         final View alertDialogView = LayoutInflater.from(follower.getApplicationContext()).inflate(R.layout.favsearch_list_addmodify, null);
 
@@ -107,7 +148,7 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
         adb.setView(alertDialogView);
 
         //On donne un titre à l'AlertDialog
-        adb.setTitle("Favori de recherche");
+        adb.setTitle("Modifier le favori ?");
 
         //On modifie l'icône de l'AlertDialog pour le fun ;)
         adb.setIcon(android.R.drawable.ic_dialog_alert);
@@ -120,7 +161,7 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
                 EditText et = (EditText)alertDialogView.findViewById(R.id.favsearchListAddModify_name);
                 FavSearchAdapter.this.itemsData.remove(itemPosition);
                 FavSearchAdapter.this.itemsData.add(new FavSearch(FavSearchAdapter.this.itemsData.get(itemPosition).getIndex(), et.getText().toString()));
-                notifyDataSetChanged();
+                sayDataSetChanged();
                //notifyItemChanged(itemPosition);
 
             } });
@@ -129,7 +170,7 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
         adb.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 //notifyItemChanged(itemPosition);
-                notifyDataSetChanged();
+                sayDataSetChanged();
                 //Lorsque l'on cliquera sur annuler on quittera l'application
                 dialog.dismiss();
             } });
@@ -196,5 +237,61 @@ public class FavSearchAdapter extends RecyclerView.Adapter<FavSearchAdapter.View
     @Override
     public int getItemCount() {
         return itemsData.size();
+    }
+
+
+    public void sayDataSetChanged(){
+        super.notifyDataSetChanged();
+        follower.updateTitle(String.valueOf(itemsData.size()));
+        saveItemsData();
+    }
+
+    public void setItemsData(List<FavSearch> itemsData){
+        this.itemsData = itemsData;
+    }
+
+    public void initItemsData(){
+        myDB = new TinyDB(follower);
+        ArrayList<String> t411Suggestions = myDB.getList("T411Suggestions");
+        if (t411Suggestions == null) {
+            t411Suggestions = new ArrayList<String>();
+        }
+        List<FavSearch> favSearches = new ArrayList<FavSearch>();
+
+        log.info("t411Suggestions null ? : "+(t411Suggestions==null));
+        if (t411Suggestions !=null) {
+            log.info("nb de favsearch trouvees: " + t411Suggestions.size());
+            int index = 0;
+
+            // this is data fro recycler view
+            for (String t411Suggestion : t411Suggestions) {
+                FavSearch favSearch = new FavSearch(index+1, t411Suggestion);
+                log.info("favsearch n°"+index+" : " + t411Suggestion);
+                favSearches.add(favSearch);
+                index++;
+            }
+        }
+        setItemsData(favSearches);
+    }
+
+
+    public void saveItemsData(){
+
+        ArrayList<String> t411Suggestions = new ArrayList<String>();
+        myDB = new TinyDB(follower);
+        log.info("t411Suggestions null ? : " + (t411Suggestions==null));
+        if (t411Suggestions !=null) {
+            log.info("nb de favsearch trouvees: " + t411Suggestions.size());
+            // this is data from itemsData
+            for (FavSearch favSearch : itemsData) {
+                log.info("favsearch n°"+favSearch.getIndex()+" : " + favSearch.getName());
+                t411Suggestions.add(favSearch.getName());
+            }
+        }
+        myDB.putList("T411Suggestions", t411Suggestions);
+    }
+
+    public List<FavSearch> getItemsData(){
+        return this.itemsData;
     }
 }

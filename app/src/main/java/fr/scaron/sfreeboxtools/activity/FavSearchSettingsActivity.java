@@ -1,12 +1,18 @@
 package fr.scaron.sfreeboxtools.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.acra.ReportField;
@@ -42,6 +48,7 @@ public class FavSearchSettingsActivity extends AbstractActivity
 	public static Logger log = LoggerFactory.getLogger(FavSearchSettingsActivity.class);
 	RecyclerView recyclerView;
 	FavSearchAdapter mAdapter;
+	FloatingActionButton favsearchAddToList;
 
 	@Override
 	protected void onPause() {
@@ -76,8 +83,89 @@ public class FavSearchSettingsActivity extends AbstractActivity
 		log.info("est en creation");
 		setContentView(R.layout.favsearch_list_layout);
 		super.setBarIcon(android.R.drawable.ic_menu_search);
+		favsearchAddToList = (FloatingActionButton)findViewById(R.id.favsearchAddToList);
+		favsearchAddToList.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				// Launching Adding Favs dialog
+				showAddFavDialog();
+			}
+		});
 		setRefreshVisible(true);
         setupList();
+		showInfoFavDialog();
+	}
+
+	private void showInfoFavDialog(){
+		boolean favSearchInfoNotified = myDB.getBoolean("FavSearchInfoNotified");
+
+		if (!favSearchInfoNotified) {
+			final View alertDialogView = LayoutInflater.from(this.getApplicationContext()).inflate(R.layout.favsearch_list_delete, null);
+
+			TextView tv = (TextView) alertDialogView.findViewById(R.id.favsearchListDelete_title);
+			tv.setText("Swipez à gauche pour supprimer, à droite pour modifier !");
+			//Création de l'AlertDialog
+			AlertDialog.Builder adb = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+
+			//On affecte la vue personnalisé que l'on a crée à notre AlertDialog
+			adb.setView(alertDialogView);
+
+			//On donne un titre à l'AlertDialog
+			adb.setTitle("Information !");
+
+			//On modifie l'icône de l'AlertDialog pour le fun ;)
+			adb.setIcon(android.R.drawable.ic_dialog_info);
+
+			//On affecte un bouton "OK" à notre AlertDialog et on lui affecte un évènement
+			adb.setPositiveButton("J'ai compris !", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					myDB.putBoolean("FavSearchInfoNotified", true);
+
+				}
+			});
+			adb.show();
+		}
+	}
+
+	private void showAddFavDialog(){
+
+		final View alertDialogView = LayoutInflater.from(this.getApplicationContext()).inflate(R.layout.favsearch_list_addmodify, null);
+
+		//Création de l'AlertDialog
+		AlertDialog.Builder adb = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK);
+
+		//On affecte la vue personnalisé que l'on a crée à notre AlertDialog
+		adb.setView(alertDialogView);
+
+		//On donne un titre à l'AlertDialog
+		adb.setTitle("Ajouter un favori ?");
+
+		//On modifie l'icône de l'AlertDialog pour le fun ;)
+		adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+		//On affecte un bouton "OK" à notre AlertDialog et on lui affecte un évènement
+		adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+
+				//Lorsque l'on cliquera sur le bouton "OK", on récupère l'EditText correspondant à notre vue personnalisée (cad à alertDialogView)
+				EditText et = (EditText) alertDialogView.findViewById(R.id.favsearchListAddModify_name);
+				mAdapter.getItemsData().add(new FavSearch(mAdapter.getItemsData().size(), et.getText().toString()));
+				mAdapter.sayDataSetChanged();
+
+			}
+		});
+
+		//On crée un bouton "Annuler" à notre AlertDialog et on lui affecte un évènement
+		adb.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				//notifyItemChanged(itemPosition);
+				mAdapter.sayDataSetChanged();
+				//Lorsque l'on cliquera sur annuler on quittera l'application
+				dialog.dismiss();
+			}
+		});
+		adb.show();
 	}
 
 	@Override
@@ -124,7 +212,7 @@ public class FavSearchSettingsActivity extends AbstractActivity
         log.debug("Execution de la méthode setupList");
         myDB = new TinyDB(FavSearchSettingsActivity.this);
 
-		ArrayList<String> t411Suggestions = myDB.getList("T411Suggestions");
+		/*ArrayList<String> t411Suggestions = myDB.getList("T411Suggestions");
 		if (t411Suggestions == null) {
 			t411Suggestions = new ArrayList<String>();
 		}
@@ -142,12 +230,12 @@ public class FavSearchSettingsActivity extends AbstractActivity
 				favSearches.add(favSearch);
                 index++;
             }
-        }
+        }*/
 
 		// 1. get a reference to recyclerView
 		recyclerView = (RecyclerView) findViewById(R.id.favsearchRecyclerView);
 		// 2. create an adapter
-		mAdapter = new FavSearchAdapter(this, favSearches, recyclerView);
+		mAdapter = new FavSearchAdapter(this, recyclerView); //, favSearches
 		// 3. set layoutManger
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
 		// 4. set item animator to DefaultAnimator
