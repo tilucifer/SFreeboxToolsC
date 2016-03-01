@@ -31,9 +31,7 @@
     <EditTextPreference
         android:key="pref_urlaccess_public_torrent"
         android:title="@string/pref_title_urlaccess_public_torrent"
-        android:summary="@string/pref_summary_urlaccess_public_torrent"
-        android:defaultValue="t411.in">
-    </EditTextPreference>
+        android:summary="@string/pref_summary_urlaccess_public_torrent" />
 
     <!--
     <EditTextPreference

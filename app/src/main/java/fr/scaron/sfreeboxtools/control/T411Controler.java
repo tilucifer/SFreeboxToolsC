@@ -58,14 +58,14 @@ public class T411Controler {
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(follower.getBaseContext());
 
+		Params.reinitT411();
 		TinyDB myDB = new TinyDB(follower);
 		String ip = "";
 		String ipTracker = "";
 		boolean errorParams=false;		
 		if (!settings.contains("pref_user_public_torrent")) errorParams=true;	
-		if (!settings.contains("pref_user_public_torrent")) errorParams=true;
-		if (!settings.contains("pref_urlaccess_public_torrent"))
-			errorParams = true;
+		if (!settings.contains("pref_pwd_public_torrent")) errorParams=true;
+		if (!settings.contains("pref_urlaccess_public_torrent")) errorParams = true;
 		if (!errorParams) {
 			ip = myDB.getString("pref_urlaccess_public_torrent");
 			if (ip.isEmpty())

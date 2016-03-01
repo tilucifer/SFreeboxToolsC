@@ -49,12 +49,13 @@ public class Params {
 	public static boolean T411_SERVER_IS_IP = false;
 	public static boolean T411_TRACKER_IS_IP = false;
 	public static String T411_TRACKER_IP = "t411.download"; //http://t411.download/passkey/announce
-	public static String T411_DNS_COURT = "t411.in";
+	public static String T411_DNS_COURT = "t411.xx";
 	public static String T411_DNS_WWW = "www."+T411_DNS_COURT;
 	public static String T411_URL = "http://"+T411_DNS_WWW;
 	//public static String T411_URL = "http://www.t411.me:8080";
     //public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/profile/";
-    public static String T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
+	public static String T411_PATH_LOGIN = "/users/login/?returnto=/users/login/";//"/users/auth/";
+    public static String T411_URL_LOGIN = T411_URL+T411_PATH_LOGIN;//"/users/login/?returnto=/users/login/";
     public static String T411_URL_GET_PREZ = T411_URL+"/torrents/torrents/"; //+?id= ID
     public static String T411_URL_SEARCH = T411_URL+"/torrents/search/?search="; // + terms
     public static String T411_URL_BOOKMARKS = T411_URL+"/my/bookmarks/";
@@ -80,7 +81,7 @@ public class Params {
 
     public static String UpdateFreq = "60";
     public static String timeoutDelay = "20";
-    public static String T411_DIR_TORRENT = "/sdcard/Android/data/fr.android.sfreeboxtools/torrents";
+    public static String T411_DIR_TORRENT = "/sdcard/Android/data/fr.scaron.sfreeboxtools/torrents";
 	
 	public static final int RET_OK = 0;
 	public static final int RET_KO = 1;
@@ -214,7 +215,8 @@ public class Params {
 		}else{
 			T411_DNS_WWW = "www."+T411_DNS_COURT;
 		}
-		T411_URL_LOGIN = T411_URL+"/users/login/?returnto=/users/login/";
+		T411_URL = "http://"+T411_DNS_WWW;
+		T411_URL_LOGIN = T411_URL+T411_PATH_LOGIN;//"/users/login/?returnto=/users/login/";
 		T411_URL_GET_PREZ = T411_URL+"/torrents/torrents/"; //+?id= ID
 		T411_URL_SEARCH = T411_URL+"/torrents/search/?search="; // + terms
 		T411_URL_BOOKMARKS = T411_URL+"/my/bookmarks/";

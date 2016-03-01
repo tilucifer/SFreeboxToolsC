@@ -17,7 +17,7 @@ public class T411Login extends HttpRaster implements Cloneable{
 		super(url, method, activity);
 		login = "";
 		password = "";
-		remember = "0";
+		remember = "1";
 	}
 	
 	
@@ -74,6 +74,7 @@ public class T411Login extends HttpRaster implements Cloneable{
 	public String getParamsString()
 	{
 		StringBuilder sb = new StringBuilder("");
+		sb.append("url=/");
 		sb.append("remember="+remember);
 		sb.append("&login="+login);
 		sb.append("&password="+password);
@@ -84,6 +85,7 @@ public class T411Login extends HttpRaster implements Cloneable{
 	public String toString(){
 		StringBuilder sb = new StringBuilder("\n"+this.getClass().getName()+"\n-----\n");
 		sb.append(super.toString());
+		sb.append("\nurl=/");
 		sb.append("\nlogin:"+login);
 		sb.append("\npassword:"+password);
 		sb.append("\nremember:"+remember);
